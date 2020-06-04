@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:10.0.1
+    ports:
+      - 8000:8080
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    networks:
+      - paymentnetwork
+
+networks:
+  paymentnetwork:
+    driver: bridge
